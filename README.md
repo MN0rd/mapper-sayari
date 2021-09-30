@@ -46,7 +46,7 @@ Note the highlighted relationships.db file.   It will be created when you run th
 ### Code conversion table
 
 The [sayari_codes.csv](sayari_codes.csv) conversion table has already been created for you. Most mappings are pretty straigtforward, but considerable work was performed
-to correctly map the identifier codes as well as the weak indentifier codes into senzing.
+to correctly map the identifier codes as well as the weak identifier codes into senzing.
 
 ![Example of sayari code mappings](images/code_conversion.jpg)
 
@@ -92,11 +92,11 @@ Basic use:
 python3 sayari_mapper.py -i ./input -r input/relationships.db -o ./output/
 ```
 - Specify the input and output directories with -i and -o.  A JSON output file will be created for every "entities" CSV input file.
-- Specify where you want the relationships sqlite database stored.   I would suggest creating it on the input directory.
+- Specify the -r relationship DB name for where you want the relationships sqlite database stored.   The input directory is a good place to store it.
 - Specify the -x flag to also map the financial and other information. These two fields aren't used for resolution, but can be added if desired.
 - Specify the -U flag so that it doesn't ask for confirmations before it overwrites files which is useful if you create a script.
-- Specify a log file if you want statistics such as how many names were created, addresses, national_ids, etc.  This along with the -D debug flag can useful if you plan 
-to make changes to the code.
+- Specify the -l log file name if you want statistics such as how many names were created, addresses, national_ids, etc.  This along with the -D debug flag can useful 
+if you plan to make changes to the code.
 
 **Large data sets:**
 
