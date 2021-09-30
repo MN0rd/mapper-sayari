@@ -102,7 +102,7 @@ python3 sayari_mapper.py -i ./input -r input/relationships.db -o ./output/
 *If you download the full data set, this process will take many hours to run and the relationships must be loaded into a sqlite database before the entities are processed.  The mapper
 will take care of this for you, but following these guidelines can help improve performance.*
 
-**Step 1: Load the relationships first**
+**Step 1: Load the relationship files first**
 
 From the sayari directory, type: 
 ```console
@@ -110,7 +110,7 @@ python3 sayari_mapper.py -i "./input/relationships*" -r input/relationships.db -
 ```
 This will take a few hours to run on the full data set, but it only needs to be run once. 
 
-**Step 2: Map the entities**
+**Step 2: Map the entities files second**
 
 If you downloaded the full data set, there will be around 100 files with around 20m rows each!  It is best to create a script and have multiple mappers running at the same 
 time.  The example script included in this project [map_entities.sh](map_entities.sh) starts 10 processes that map 10 files each and may take about 10 hours to run.
