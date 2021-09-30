@@ -107,7 +107,7 @@ will take care of this for you, but following these guidelines can help improve 
 
 From the sayari directory, type: 
 ```console
-python3 sayari_mapper.py -i "./input/relationships*" -r input/relationships.db -o ./output/
+python3 sayari_mapper.py -i "./input/relationships*.csv.gz" -r input/relationships.db -o ./output/
 ```
 This will take a few hours to run on the full data set, but it only needs to be run once. 
 
