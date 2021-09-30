@@ -914,11 +914,11 @@ if __name__ == "__main__":
     main_pid = psutil.Process(os.getpid())
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input_path', help='the directiory that contains the sayari files')
+    parser.add_argument('-i', '--input_path', help='the directory that contains the Sayari files')
     parser.add_argument('-o', '--output_path', help='the directory to write the mapped json files to')
     parser.add_argument('-r', '--relationdb_name', help='the relationship db file to build or use')
     parser.add_argument('-l', '--log_file', help='optional name of the statistics log file')
-    parser.add_argument('-x', '--extended_format', action='store_true', default=False, help='map the all the fields including finances and other information')
+    parser.add_argument('-x', '--extended_format', action='store_true', default=False, help='map all the fields including finances and other information')
     parser.add_argument('-D', '--debug', action='store_true', default=False, help='run in debug mode')
     parser.add_argument('-U', '--unattended', action='store_true', default=False, help='dont ask questions')
     parser.add_argument('-f', '--filter_file', help='optional name of a file containing a list of nodes')
