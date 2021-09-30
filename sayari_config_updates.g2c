@@ -1,1 +1,7 @@
 addDataSource SAYARI
+
+addAttribute {"id": "1356", "attribute": "NATIONAL_ID_TYPE", "class": "IDENTIFIER", "feature": "NATIONAL_ID", "element": "ID_TYPE", "required": "Desired", "default": "", "advanced": "No", "internal": "No"}
+addAttribute {"id": "2814", "attribute": "REL_POINTER_FROM_DATE", "class": "RELATIONSHIP", "feature": "REL_POINTER", "element": "USED_FROM_DT", "required": "No", "default": "", "advanced": "No", "internal": "No"}
+addAttribute {"id": "2815", "attribute": "REL_POINTER_THRU_DATE", "class": "RELATIONSHIP", "feature": "REL_POINTER", "element": "USED_THRU_DT", "required": "No", "default": "", "advanced": "No", "internal": "No"}
+
+save
