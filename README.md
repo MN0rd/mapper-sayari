@@ -13,11 +13,11 @@ This mapper also uses a conversion table to map Sayari codes into Senzing codes.
 
 1. [Prerequisites](#prerequisites)
 1. [Installation](#installation)
-1. [Download Sayari files](#download_sayari_files)
-1. [Code conversion table](#code_conversion_table)
-1. [Running the mapper](#running_the_mapper)
+1. [Download Sayari files](#download-sayari-files)
+1. [Code conversion table](#code-conversion-table)
+1. [Running the mapper](#running-the-mapper)
 1. [Configuring Senzing](#configuring-senzing)
-1. [Loading into Senzing](#loading_into-senzing)
+1. [Loading into Senzing](#loading-into-senzing)
 
 ### Prerequisites
 
