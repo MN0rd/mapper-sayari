@@ -113,7 +113,7 @@ This will take a few hours to run on the full data set, but it only needs to be 
 *Step 2: Map the entities*
 
 If you downloaded the full data set, there will be around 100 files with around 20m rows each!  It is best to create a script and have multiple mappers running at the same 
-time.  The example script included in this project [map_entities.sh](map_entities.sh)starts 10 processes that map 10 files each and may take about 10 hours to run.
+time.  The example script included in this project [map_entities.sh](map_entities.sh) starts 10 processes that map 10 files each and may take about 10 hours to run.
 
 The result of this is an output directory with a gzipped json file for each gzipped "entities" csv file on the input directory.  
 
