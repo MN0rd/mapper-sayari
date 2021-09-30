@@ -5,9 +5,9 @@
 The [sayari_mapper.py](sayari_mapper.py) python script converts Sayari's global corporate data into json files ready to load into Senzing.  You can out more about Sayari and 
 how to get their data [here](https://www.sayari.com). Please note: only their csv format is supported.
 
-Loading this data into Senzing requires additional features and configurations. These are contained in the [sayari-config-updates.g2c](sayari_config_updates.g2c) file.
+Loading this data into Senzing requires additional features and configurations. These are contained in the [sayari_config_updates.g2c](sayari_config_updates.g2c) file.
 
-This mapper also uses a conversion table to map Sayari codes into Senzing codes.  These are contained in the [sayari-codes.csv](sayari_codes.csv) file.
+This mapper also uses a conversion table to map Sayari codes into Senzing codes.  These are contained in the [sayari_codes.csv](sayari_codes.csv) file.
 
 ## Contents
 
@@ -30,8 +30,8 @@ This mapper also uses a conversion table to map Sayari codes into Senzing codes.
 Place the the following files on a directory of your choice ...
 
 - [sayari_mapper.py](sayari_mapper.py)
-- [sayari-config-updates.g2c](sayari_config_updates.g2c)
-- [sayari-codes.csv](sayari_codes.csv)
+- [sayari_config_updates.g2c](sayari_config_updates.g2c)
+- [sayari_codes.csv](sayari_codes.csv)
 
 ### Download Sayari files
 
@@ -45,7 +45,7 @@ Note the highlighted relationships.db file.   It will be created when you run th
 
 ### Code conversion table
 
-The [sayari-codes.csv](sayari-codes.csv) conversion table has already been created for you. Most mappings are pretty straigtforward.  But a lot of work was done to correctly map the
+The [sayari_codes.csv](sayari_codes.csv) conversion table has already been created for you. Most mappings are pretty straigtforward.  But a lot of work was done to correctly map the
 identifier codes into senzing.
 
 ![Example of sayari code mappings](images/code_conversion.jpg)
