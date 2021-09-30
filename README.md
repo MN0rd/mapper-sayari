@@ -141,4 +141,3 @@ the second time through they will all say "already exists" which is OK.
 
 The JSON files in the output directory can be loaded into Senzing in various ways.  If you have a docker or AWS setup, you can load them via the stream-producer or if you
 have a bare metal install you can load them via the G2Loader python script provided in the install.
-
