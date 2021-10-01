@@ -127,7 +127,7 @@ entities files than the CSV input files because they contain one or more rows pe
 
 *Note:* This only needs to be performed once and you may want to add these configuration updates to a master configuration file for all your data sources.
 
-From your Senzing project directory:
+From your Senzing project's Python directory, type:
 
 ```console
 python3 G2ConfigTool.py <path-to-file>/sayari_config_updates.g2c -f
