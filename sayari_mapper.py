@@ -29,13 +29,13 @@ class mapper():
         self.code_conversion_data, self.unmapped_code_count = self.load_codes_file()
         self.new_code_records = []
 
-        self.relation_dbo = self.open_relation_db(relationdb_name) if relationdb_name else None
+        if os.path.exists(args.relationdb_name): #--will be opened later if does not exist
+            self.open_relation_db(relationdb_name) if relationdb_name else None
 
     #----------------------------------------
     def open_relation_db(self, relationdb_name):
-        relation_dbo = sqlite3.connect(f'file:{relationdb_name}?mode=ro', uri=True)
-        relation_dbo.cursor().execute('PRAGMA query_only=ON')
-        return relation_dbo
+        self.relation_dbo = sqlite3.connect(f'file:{relationdb_name}?mode=ro', uri=True)
+        self.relation_dbo.cursor().execute('PRAGMA query_only=ON')
 
     #----------------------------------------
     def load_codes_file(self):
@@ -123,7 +123,21 @@ class mapper():
                     name_label = 'PRIMARY'
                 else:
                     name_label = 'ALT'
-                json_data['NAME_LIST'].append({name_label + '_' + name_attr: json_data['distinct_name_list'][i]})
+
+                #--truncate long names
+                this_name = json_data['distinct_name_list'][i]
+                if len(this_name.split()) > 15:
+                    self.update_stat('TRUNCATIONS', 'longNameCnt', json_data['RECORD_ID'] + ' [' + this_name + ']')
+                    this_name = ' '.join(this_name.split()[:14]) + ' <truncated>'
+
+                json_data['NAME_LIST'].append({name_label + '_' + name_attr: this_name})
+
+                #--truncate too many names
+                if i > 25:
+                    self.update_stat('TRUNCATIONS', 'tooManyNames', json_data['RECORD_ID'] + ' [' + str(len(json_data['distinct_name_list'])) + ']')
+                    break
+
+
         del(json_data['distinct_name_list'])
 
         #--map the distinct address list
@@ -984,8 +998,8 @@ if __name__ == "__main__":
     if not entity_file_list and not relationship_file_list:
         print(f'\nNo Sayari files found at {args.input_path}\n')
         print('\tSayari files must end with .csv or .gz ... parquet files are not currenty supported.')
-        print('\tSayari entity files must have "entity" somewhere in the file name.')
-        print('\tSayari relationship files must have "relationship" somewhere in the file name.\n')
+        print('\tSayari entity files must have "entities" somewhere in the file name.')
+        print('\tSayari relationship files must have "relationships" somewhere in the file name.\n')
         sys.exit(1)
     if not args.unattended:
         response = input('OK to proceed? (y/n) ')
@@ -1057,8 +1071,8 @@ if __name__ == "__main__":
             input_file_handle = open(input_file_name, 'r')
             csv_reader = csv.DictReader(input_file_handle, dialect='excel')
 
-        try: input_row = next(csv_reader) #--skip header row
-        except: input_row = None
+        #try: input_row = next(csv_reader) #--skip header row
+        #except: input_row = None
         try: input_row = next(csv_reader) #--get first row
         except: input_row = None
 
